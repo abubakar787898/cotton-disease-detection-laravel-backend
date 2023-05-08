@@ -138,4 +138,45 @@ class UserController extends Controller
         return redirect()->route('users.index')
                         ->with('success','User deleted successfully');
     }
+
+
+    public function userLogin(Request $request){
+
+        // if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+
+        //     $user = Auth::user();
+        //     $success['token'] =  $user->createToken('MyApp')->plainTextToken;
+        //     $success['name'] =  $user->name;
+
+        //     return response()->json([
+        //         'access_token' => $success['token'],
+        //         'token_type' => 'Bearer',
+        //         'user' => $user
+        //     ], "logged in succesfully successfully");
+        // } else {
+
+        //     return response([
+        //                 'error' => 'Email and Password is Incorrect'
+        //             ]);
+   
+        // }
+        $user = User::where('email', $request['email'])->first();
+
+        if (!$user || !Hash::check($request['password'], $user['password'])) {
+            return response([
+                'error' => 'Email and Password is Incorrect'
+            ]);
+        } else {
+
+            $token = $user->createToken('access_token')->plainTextToken;
+            return response()->json([
+                'access_token' => $token,
+                'token_type' => 'Bearer',
+                'user' => $user,
+                'message'=>"logged in succesfully successfully"
+            ], 200);
+            // return Helper::sendResponse(, "successfully");
+        }
+        
+    }
 }

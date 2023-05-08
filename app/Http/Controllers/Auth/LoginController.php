@@ -60,22 +60,5 @@ class LoginController extends Controller
   
         return redirect("/")->withSuccess('Login details are not valid');
     }
-    public function userLogin(Request $request){
-        $user = User::where('email', $request['email'])->first();
-
-        if (!$user || !Hash::check($request['password'], $user['password'])) {
-            return response([
-                'error' => 'Email and Password is Incorrect'
-            ]);
-        } else {
-
-            $token = $user->createToken('access_token')->plainTextToken;
-            return response()->json([
-                'access_token' => $token,
-                'token_type' => 'Bearer',
-            ], 200);
-            // return Helper::sendResponse(, "successfully");
-        }
-        
-    }
+ 
 }
