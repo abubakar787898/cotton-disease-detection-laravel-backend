@@ -29,6 +29,7 @@ Route::post('update-profile', [FrontendAppController::class, 'updateProfile']);
 Route::post('save_history', [FrontendAppController::class, 'saveHistory']);
 Route::get('get_user_history', [FrontendAppController::class, 'getUserHistory']);
 Route::get('get_user', [FrontendAppController::class, 'getUser']);
+Route::get('logout', [FrontendAppController::class, 'logout']);
 
 
 });

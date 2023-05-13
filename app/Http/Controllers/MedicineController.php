@@ -23,7 +23,6 @@ class MedicineController extends Controller
     {
         //
         $medicines = Medicine::get();
-        // dd($medicines);
         return view('medicines.index',compact('medicines'));
     }
 
@@ -47,10 +46,9 @@ class MedicineController extends Controller
     public function store(Request $request)
     {
         //
-         // dd($request->image);
+         
          request()->validate([
             'name' => 'required',
-            // 'detail' => 'required',
             'image'=>'required',
         ]);
     
@@ -114,7 +112,7 @@ class MedicineController extends Controller
          
         ]);
     
-    // dd($image->getClientOriginalExtension());
+  
         
         $medicine=Medicine::find($request->pid);
        

@@ -33,7 +33,7 @@ Auth::routes();
   
 
 Route::middleware(['auth:admin'])->group(function () {
-    Route::resource('roles', RoleController::class);
+
     Route::resource('users', UserController::class);
     Route::resource('admins', AdminController::class);
     Route::resource('medicines', MedicineController::class);

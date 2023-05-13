@@ -25,15 +25,7 @@
     {{-- adding databales --}}
     <link href="{{ url('/') }}/admin/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="{{ url('/') }}/admin/css/dataTables.bootstrap5.min.css" rel="stylesheet">
-    
     <link rel="stylesheet" type="text/css" href="{{ url('/') }}/admin/css/sweetalert.min.css">
-    {{-- <script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyBwpadkd8mOmHOdQjq8t4EfhZrDxT1anL0">
-    </script> --}}
-    {{-- <script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDZFGHIsEhHhdWpSXIEoUpxBmg-UM8a1Fg">
-    </script> --}}
-    
     <link rel="stylesheet" href="{{ url('/') }}/admin/css/dropzone.min.css">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url('/') }}/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url('/') }}/favicons/favicon-32x32.png">
@@ -47,15 +39,11 @@
     <link rel="stylesheet" href="{{ url('/') }}/admin/css/ekko-lightbox.css">
 
     <link href="{{ url('/') }}/loader/loader.css" rel="stylesheet" />
-    {{-- <link href="{{ url('/') }}/loader/buttonloader.css" rel="stylesheet" /> --}}
+
 
     <link href="{{ url('/') }}/admin/css/loader.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    
-    {{-- date range picker  --}}
-    {{-- https://www.daterangepicker.com/ --}}
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
     @yield('custom-css')
@@ -66,9 +54,4 @@
 
     <script type="text/javascript">
         const _baseUrl = "{{ url('/') }}/admins/"
-        // $.ajaxSetup({
-        //     headers: {
-        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //     }
-        // });
     </script>

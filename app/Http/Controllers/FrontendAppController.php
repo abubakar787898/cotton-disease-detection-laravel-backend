@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\RecommendedMedicine;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FrontendAppController extends Controller
 {
@@ -49,6 +50,20 @@ class FrontendAppController extends Controller
         ? response()->json($response, 200)
         : response()->json("Some Error ", 400);
     
+    }
+    public function logout(Request $request)
+    {
+     
+        $request->user()->currentAccessToken()->delete();
+      
+  
+     $response = [
+        'success' => true,
+        
+        'message' => "Logout Successfully",
+    ];
+        return  response()->json($response, 200);
+        
     }
     public function getUser()
     {

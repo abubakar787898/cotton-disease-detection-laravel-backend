@@ -56,12 +56,9 @@ class UserController extends Controller
             'password' => 'required|same:confirm-password',
             
         ]);
-    
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
-    
         $user = User::create($input);
-     
     
         return redirect()->route('users.index')
                         ->with('success','User created successfully');
@@ -108,20 +105,14 @@ class UserController extends Controller
             'password' => 'same:confirm-password',
             
         ]);
-    
         $input = $request->all();
         if(!empty($input['password'])){ 
             $input['password'] = Hash::make($input['password']);
         }else{
             $input = Arr::except($input,array('password'));    
         }
-    
         $user = User::find($id);
         $user->update($input);
-     
-    
-        
-    
         return redirect()->route('users.index')
                         ->with('success','User updated successfully');
     }
@@ -173,9 +164,8 @@ class UserController extends Controller
                 'access_token' => $token,
                 'token_type' => 'Bearer',
                 'user' => $user,
-                'message'=>"logged in succesfully successfully"
+                'message'=>"logged in  successfully"
             ], 200);
-            // return Helper::sendResponse(, "successfully");
         }
         
     }

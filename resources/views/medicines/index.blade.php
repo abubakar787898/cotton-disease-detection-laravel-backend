@@ -15,14 +15,6 @@
             </div>
         </div>
     </div>
-
-
-    {{-- @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif --}}
-    {{-- {{dd($medicines)}} --}}
     <table class="table table-striped table-hover datatable">
         <thead>
             <tr>
@@ -56,15 +48,10 @@
                      
                         </form>
                     </div>
-
-           
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-
- 
- 
 </section>
 @endsection 
