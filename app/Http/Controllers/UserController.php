@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -168,5 +169,33 @@ class UserController extends Controller
             ], 200);
         }
         
+    }
+    public function register(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+            'c_password' => 'required|same:password',
+        ]);
+
+        if ($validator->fails()) {
+            // return Helper::sendError(HelperMessage::error(), $e, 401);
+            return $this->sendError('Validation Error.', $validator->errors());
+        }
+
+    $user=new User();
+    $user->name=$request->name;
+    $user->email=$request->email;
+    $user->phone=$request->phone;
+    $user->password=Hash::make( $request->password);
+    $user->save();
+     
+
+     
+            return response()->json([
+                'message' => "Account Created successfully",
+            ], 200);
+         
     }
 }
