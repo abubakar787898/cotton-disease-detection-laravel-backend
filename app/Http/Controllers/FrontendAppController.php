@@ -54,7 +54,7 @@ class FrontendAppController extends Controller
     {
      
     
-       $user_history=User::with('history.medicine')->find(auth()->user()->id);
+       $user_history=User::with(['history.medicine'])->find(auth()->user()->id);
   
      $response = [
         'success' => true,

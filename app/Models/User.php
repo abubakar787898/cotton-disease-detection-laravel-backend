@@ -20,7 +20,7 @@ class User extends Authenticatable
      */
         public function history()
     {
-        return $this->hasMany(RecommendedMedicine::class);
+        return $this->hasMany(RecommendedMedicine::class,'user_id','id');
     }
     protected $fillable = [
         'name',

@@ -44,7 +44,7 @@ Route::middleware(['auth:admin'])->group(function () {
 
 });
 
-// Route::post('/login', [LoginController::class,'customLogin'])->name('login.post');
+Route::post('/login', [LoginController::class,'customLogin'])->name('login.post');
 Route::get('/', function () { 
     if(Auth::guard('admin')->check()){
         return redirect('/dashboard');
