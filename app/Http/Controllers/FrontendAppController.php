@@ -34,7 +34,22 @@ class FrontendAppController extends Controller
         : response()->json("Some Error ", 400);
     
     }
+    public function history(Request $request)
+    {
+     
+    
+       $user_history=User::with("history.medicine")->find( auth()->user()->id);
 
+     $response = [
+        'success' => true,
+        'data' => $user_history,
+        'message' => " Successfully",
+    ];
+        return ($user_history)
+        ? response()->json($response, 200)
+        : response()->json("Some Error ", 400);
+    
+    }
     public function getUserHistory()
     {
      
