@@ -34,3 +34,4 @@ Route::get('logout', [FrontendAppController::class, 'logout']);
 
 
 });
+Route::post('get_medicine', [FrontendAppController::class, 'getMedicine']);
