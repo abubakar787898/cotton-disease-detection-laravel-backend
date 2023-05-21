@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Medicine;
 use App\Models\RecommendedMedicine;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -46,6 +47,22 @@ class FrontendAppController extends Controller
         'message' => " Successfully",
     ];
         return ($user_history)
+        ? response()->json($response, 200)
+        : response()->json("Some Error ", 400);
+    
+    }
+    public function getMedicine(Request $request)
+    {
+     
+    
+       $medicine_disease=Medicine::where('disease_name',$request->disease)->get();
+
+     $response = [
+        'success' => true,
+        'data' => $medicine_disease,
+        'message' => " Successfully",
+    ];
+        return ($medicine_disease)
         ? response()->json($response, 200)
         : response()->json("Some Error ", 400);
     
